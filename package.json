@@ -12,6 +12,7 @@
     "deploy": "npm run pages:build && wrangler pages deploy .vercel/output/static"
   },
   "dependencies": {
+    "@ant-design/nextjs-registry": "^1.0.0",
     "antd": "^5.15.1",
     "next": "14.1.0",
     "react": "^18",
@@ -24,7 +25,7 @@
     "postcss": "^8",
     "tailwindcss": "^3.3.0",
     "vercel": "^33.5.4",
-    "wrangler": "^3.31.0"
+    "wrangler": "^3.32.0"
   },
   "volta": {
     "node": "20.11.1"

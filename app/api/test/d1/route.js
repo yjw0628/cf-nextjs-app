@@ -1,7 +1,8 @@
+import { getRequestContext } from '@cloudflare/next-on-pages'
+
 export const runtime = 'edge'
 
 export async function GET(request) {
-  // let responseText = 'Hello World'
 
   // In the edge runtime you can use Bindings that are available in your application
   // (for more details see:
@@ -9,7 +10,17 @@ export async function GET(request) {
   //    - https://developers.cloudflare.com/pages/functions/bindings/
   // )
   //
-  return Response.json(request.header)
-  console.log(request.headers)
-  return new Response(responseText)
+  // KV Example:
+  const D1 = getRequestContext().env.d1
+
+  console.log(D1.info)
+  return new Response('d1')
+
+  const value = await KV.get('count')
+
+  await KV.put('count', Number(value?? 0) + 1)
+
+  const count = await KV.get('count')
+
+  return new Response(count)
 }
