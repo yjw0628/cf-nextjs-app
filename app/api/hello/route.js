@@ -1,7 +1,7 @@
 export const runtime = 'edge'
 
 export async function GET(request) {
-  // let responseText = 'Hello World'
+  let responseText = 'Hello World'
 
   // In the edge runtime you can use Bindings that are available in your application
   // (for more details see:
@@ -9,7 +9,5 @@ export async function GET(request) {
   //    - https://developers.cloudflare.com/pages/functions/bindings/
   // )
   //
-  return Response.json(request.header)
-  console.log(request.headers)
   return new Response(responseText)
 }
